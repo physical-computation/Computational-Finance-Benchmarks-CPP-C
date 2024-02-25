@@ -1,5 +1,7 @@
 BSD 3-Clause License
 
+Translated to C++ by James T. Meech in 2024 from Python code originally authored by Lech A. Grzelak in 2018.
+
 Copyright (c) 2024, Physical Computation Laboratory, University of Cambridge, Department of Engineering
 
 Redistribution and use in source and binary forms, with or without
