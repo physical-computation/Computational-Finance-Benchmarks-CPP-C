@@ -39,8 +39,8 @@
 int
 main()
 {
-    std::random_device rd {};
-    std::mt19937 gen {rd()};
+	std::random_device rd {};
+	std::mt19937 gen {rd()};
 	std::normal_distribution<> d {0.0, 1.0};
 	
 	int NoOfPaths = 25;

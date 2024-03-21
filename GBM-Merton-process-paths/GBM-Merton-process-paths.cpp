@@ -63,10 +63,8 @@ main()
 	double const1 = (r - xiP*(EeJ-1) - 0.5*sigma*sigma)*dt;
 
 	std::random_device generator{};
-        std::poisson_distribution<int> poisson(xiP*dt);
-
+    std::poisson_distribution<int> poisson(xiP*dt);
 	std::normal_distribution<> d1{0.0, 1.0};
-
 	std::normal_distribution<> d2{muJ, sigmaJ};
 
 	for(int j = 0 ; j < NoOfPaths ; j++)

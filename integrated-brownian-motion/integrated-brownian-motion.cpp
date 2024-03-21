@@ -39,14 +39,13 @@
 int 
 main()
 {
-    std::random_device rd {};
-    std::mt19937 gen {rd()};
-	
+	std::random_device rd {};
+	std::mt19937 gen {rd()};
 	std::normal_distribution<> d {0.0, 1.0};
-	
-    int NoOfPaths = 25;
-    int NoOfSteps = 500;
-    int T = 2;
+
+	int NoOfPaths = 25;
+	int NoOfSteps = 500;
+	int T = 2;
 	double Z[NoOfPaths][NoOfSteps];
 	double W[NoOfPaths][NoOfSteps+1];
 	double I1[NoOfPaths][NoOfSteps+1];
@@ -58,7 +57,7 @@ main()
 		for(int i = 0 ; i < NoOfSteps ; i++)
 		{
 			Z[j][i] = d(gen);
-		    W[j][i+1] = W[j][i] + rootDt * Z[j][i];
+			W[j][i+1] = W[j][i] + rootDt * Z[j][i];
 			I1[j][i+1] = I1[j][i] + W[j][i] * (W[j][i+1]-W[j][i]);
 		}
 	}

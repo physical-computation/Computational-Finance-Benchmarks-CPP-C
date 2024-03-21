@@ -40,9 +40,9 @@
 int 
 main()
 {
-    int NoOfPaths = 25;
-    int NoOfSteps = 500;
-    int T = 2;
+	int NoOfPaths = 25;
+	int NoOfSteps = 500;
+	int T = 2;
 	double Z[NoOfPaths][NoOfSteps];
 	double W[NoOfPaths][NoOfSteps+1];
 	double I1[NoOfPaths][NoOfSteps+1];
@@ -62,7 +62,7 @@ main()
 		for(int i = 0 ; i < NoOfSteps ; i++)
 		{
 			Z[j][i] = gsl_ran_gaussian(R, sigmaPath) + muPath;
-		    W[j][i+1] = W[j][i] + rootDt * Z[j][i];
+			W[j][i+1] = W[j][i] + rootDt * Z[j][i];
 			I1[j][i+1] = I1[j][i] + W[j][i] * (W[j][i+1]-W[j][i]);
 		}
 	}
