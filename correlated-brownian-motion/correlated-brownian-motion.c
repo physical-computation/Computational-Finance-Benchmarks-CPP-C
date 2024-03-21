@@ -62,7 +62,7 @@ main()
 	RNG = gsl_rng_default;
 	R = gsl_rng_alloc (RNG);
 	
-    for (int j = 0 ; j < NoOfPaths ; j++)
+	for (int j = 0 ; j < NoOfPaths ; j++)
 	{
 		for (int i = 0 ; i < NoOfSteps ; i++)
 		{
@@ -75,5 +75,5 @@ main()
 	}
 
 	gsl_rng_free (R);
-
+	return 0;
 }

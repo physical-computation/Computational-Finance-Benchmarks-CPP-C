@@ -53,11 +53,11 @@ main()
 	double W1[NoOfPaths][NoOfSteps + 1];
 	double W2[NoOfPaths][NoOfSteps + 1];
 	
-    std::random_device rd {};
-    std::mt19937 gen {rd()};
+	std::random_device rd {};
+	std::mt19937 gen {rd()};
 	std::normal_distribution<> d {0.0, 1.0};
 	
-    for (int j = 0 ; j < NoOfPaths ; j++)
+	for (int j = 0 ; j < NoOfPaths ; j++)
 	{
 		for (int i = 0 ; i < NoOfSteps ; i++)
 		{
@@ -68,4 +68,5 @@ main()
 			W2[j][i+1] = W2[j][i] + rootDt*Z2[j][i];
 		}
 	}	
+	return 0;
 }
