@@ -68,6 +68,5 @@ main()
 	}
 
 	gsl_rng_free (R);
-
 	return 0;
 }
