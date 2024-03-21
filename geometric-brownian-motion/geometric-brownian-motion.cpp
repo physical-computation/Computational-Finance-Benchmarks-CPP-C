@@ -39,21 +39,21 @@
 int 
 main()
 {
-    int NoOfPaths = 25;
-    int NoOfSteps = 500;
-    int T = 1;
-    double r = 0.05;
-    double sigma = 0.4;
+	int NoOfPaths = 25;
+	int NoOfSteps = 500;
+	int T = 1;
+	double r = 0.05;
+	double sigma = 0.4;
 	double sigma2 = pow(sigma,2);
-    int S_0 = 100;
+	int S_0 = 100;
 	double dt = (double)T / NoOfSteps;
 	double rootdt = pow(dt, 0.5);
 	double b1 = r - 0.5 * sigma2;
 	double b1dt = b1*dt;
-	
-    std::random_device rd{};
-    std::mt19937 gen{rd()};
-    std::normal_distribution<> d1{0.0, 1.0};
+
+	std::random_device rd{};
+	std::mt19937 gen{rd()};
+	std::normal_distribution<> d1{0.0, 1.0};
 	
 	double Z[NoOfPaths][NoOfSteps];
 	double X[NoOfPaths][NoOfSteps+1];
@@ -66,11 +66,11 @@ main()
 	
 	for(int j = 0 ; j < NoOfPaths ; j++)
 	{
-    	for(int i = 0 ; i < NoOfSteps ; i++)
-    	{   
-		Z[j][i] = d1(gen);    
-        X[j][i+1] = X[j][i] + b1dt + sigma * rootdt*Z[j][i];  
-		S[j][i+1] = exp(X[j][i+1]);
+    		for(int i = 0 ; i < NoOfSteps ; i++)
+    		{	   
+			Z[j][i] = d1(gen);    
+        		X[j][i+1] = X[j][i] + b1dt + sigma * rootdt*Z[j][i];  
+			S[j][i+1] = exp(X[j][i+1]);
 		}
 	}
 	return 0;
