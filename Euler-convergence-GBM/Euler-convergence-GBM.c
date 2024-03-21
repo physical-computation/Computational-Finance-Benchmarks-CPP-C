@@ -1,9 +1,11 @@
 /*
 	BSD 3-Clause License
 
-	Translated to C by James T. Meech in 2024 from Python code originally authored by Lech A. Grzelak in 2018.
+	Translated to C by James T. Meech in 2024 from Python code originally authored by Lech A. Grzelak.
 
 	Copyright (c) 2024, Physical Computation Laboratory, University of Cambridge, Department of Engineering
+
+	Original Python code copyright (c) 2024, leszek
 
 	Redistribution and use in source and binary forms, with or without
 	modification, are permitted provided that the following conditions are met:
