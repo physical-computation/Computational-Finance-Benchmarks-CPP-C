@@ -56,18 +56,17 @@ main()
 	double X[NoOfPaths][NoOfSteps+1];
 	double Xc[NoOfPaths][NoOfSteps+1];
 	double Z[NoOfPaths][NoOfSteps]; 
-
-    for(int j = 0 ; j < NoOfPaths ; j++)
+	
+	for(int j = 0 ; j < NoOfPaths ; j++)
 	{
 		for(int i = 0 ; i < NoOfSteps ; i++)
 		{	
-        	Z[j][i] = gsl_ran_poisson(R, muPoisson);
+        		Z[j][i] = gsl_ran_poisson(R, muPoisson);
 			X[j][i+1]  = X[j][i] + Z[j][i];
-        	Xc[j][i+1] = Xc[j][i] - muPoisson + Z[j][i];
+        		Xc[j][i+1] = Xc[j][i] - muPoisson + Z[j][i];
 		}
 	}
 
 	gsl_rng_free (R);
-
 	return 0;
 }
