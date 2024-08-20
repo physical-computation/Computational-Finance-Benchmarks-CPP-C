@@ -1,3 +1,4 @@
+
 /*
 	BSD 3-Clause License
 
@@ -54,8 +55,9 @@ main()
 	double b1 = r - 0.5 * sigma2;
 	double b1dt = b1*dt;
 	
-	double X[NoOfSteps+1];
-	double S[NoOfSteps+1];
+	double Z[NoOfPaths][NoOfSteps];
+	double X[NoOfPaths][NoOfSteps+1];
+	double S[NoOfPaths][NoOfSteps+1];
 
 	const gsl_rng_type * RNG;
 	gsl_rng * R;
@@ -63,14 +65,20 @@ main()
 	RNG = gsl_rng_default;
 	R = gsl_rng_alloc (RNG);
 	
-	X[0] = log(S_0);
-
-	for(int i = 0 ; i < NoOfSteps ; i++)
-    	{   
-        	X[i+1] = X[i] + b1dt + sigma * rootdt*Z[i];  
-		S[i+1] = exp(X[i+1]);
+	for(int j = 0 ; j < NoOfPaths; j++)
+	{
+		X[j][0] = log(S_0);
 	}
 	
+	for(int j = 0 ; j < NoOfPaths ; j++)
+	{
+    		for(int i = 0 ; i < NoOfSteps ; i++)
+    		{   
+			Z[j][i] = gsl_ran_gaussian(R, sigmaPath) + muPath;
+        		X[j][i+1] = X[j][i] + b1dt + sigma * rootdt*Z[j][i];  
+			S[j][i+1] = exp(X[j][i+1]);
+		}
+	}
 
 	gsl_rng_free (R);
 	return 0;
